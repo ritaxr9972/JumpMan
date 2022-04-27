@@ -34,7 +34,6 @@ public class Movement : MonoBehaviour
         movePlayer = Input.GetAxis("Horizontal");
 
         rb.velocity = new Vector2(playerSpeed * movePlayer, rb.velocity.y);
-        rb.velocity = Vector2.ClampMagnitude(rb.velocity, 10f);
 
         //player jump
         if((Input.GetButtonDown("Jump")) && (isJumping == false))
@@ -63,6 +62,7 @@ public class Movement : MonoBehaviour
         // camera follow player
         Vector3 pos = mainCamera.transform.position;
         pos.x = rb.transform.position.x;
+        pos.y = rb.transform.position.y;
         mainCamera.transform.position = pos;
     }
 
