@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2427423099628809065}
   - component: {fileID: 2427423099628809066}
   - component: {fileID: 2427423099628809064}
+  - component: {fileID: 2427423100446022142}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -146,10 +147,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2ed26951a4b3141878762b3f5f1127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 10
-  jumpSpeed: 400
-  mainCamera: {fileID: 0}
+  playerSpeed: 5
+  jumpSpeed: 350
   rb: {fileID: 2427423099628809065}
-  isJumping: 0
   dashSpeed: 14
   dashTime: 0.5
+--- !u!114 &2427423100446022142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2427423099628809070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35b17473de91b3c4aa057da2f705ea8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
+  player: {fileID: 2427423099628809070}

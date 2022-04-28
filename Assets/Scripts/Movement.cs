@@ -6,15 +6,15 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] float playerSpeed;
     [SerializeField] float jumpSpeed;
-    [SerializeField] GameObject mainCamera;
+    //[SerializeField] GameObject mainCamera;
 
     float movePlayer;
 
     [SerializeField] Rigidbody2D rb;
 
-    public bool isJumping;
+    bool isJumping;
 
-    [SerializeField] float dashSpeed = 14f;
+    [SerializeField] float dashSpeed = 20f;
     [SerializeField] float dashTime = 0.4f;
     Vector2 dashDirection;
     bool isDashing;
@@ -60,10 +60,10 @@ public class Movement : MonoBehaviour
         }
 
         // camera follow player
-        Vector3 pos = mainCamera.transform.position;
+       /* Vector3 pos = mainCamera.transform.position;
         pos.x = rb.transform.position.x;
         pos.y = rb.transform.position.y;
-        mainCamera.transform.position = pos;
+        mainCamera.transform.position = pos; */
     }
 
     private void OnCollisionEnter2D(Collision2D other)
