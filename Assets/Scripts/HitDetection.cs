@@ -13,9 +13,9 @@ public class HitDetection : MonoBehaviour
             {
                 Debug.Log("Enemy hit and defeated");
                 
-                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(collision.gameObject.GetComponent<Rigidbody2D>().velocity.x, 400f));
+                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(collision.gameObject.GetComponent<Rigidbody2D>().velocity.x, 300f));
 
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
             else
             {

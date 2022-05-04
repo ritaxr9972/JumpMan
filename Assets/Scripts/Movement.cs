@@ -19,7 +19,8 @@ public class Movement : MonoBehaviour
     Vector2 dashDirection;
     bool isDashing;
     bool canDash;
-    
+
+    [SerializeField] float smashSpeed = 700f;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +60,12 @@ public class Movement : MonoBehaviour
             return;
         }
 
+        if((Input.GetButtonDown("Smash")) && (isJumping))
+        {
+            rb.AddForce(new Vector2(rb.velocity.x, -smashSpeed));
+            StartCoroutine(SmashWait());
+        }
+
         // camera follow player
        /* Vector3 pos = mainCamera.transform.position;
         pos.x = rb.transform.position.x;
@@ -89,5 +96,10 @@ public class Movement : MonoBehaviour
         yield return new WaitForSeconds(dashTime);
         isDashing = false;
         canDash = true;
+    }
+
+    IEnumerator SmashWait()
+    {
+        yield return new WaitForSeconds(1.5f);
     }
 }
