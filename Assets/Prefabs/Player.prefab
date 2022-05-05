@@ -147,11 +147,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2ed26951a4b3141878762b3f5f1127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 5
+  playerSpeed: 7
   jumpSpeed: 450
   rb: {fileID: 2427423099628809065}
-  dashSpeed: 12
+  dashSpeed: 5
   dashTime: 0.4
+  smashSpeed: 400
 --- !u!114 &2427423100446022142
 MonoBehaviour:
   m_ObjectHideFlags: 0

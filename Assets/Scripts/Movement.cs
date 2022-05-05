@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour
     bool isDashing;
     bool canDash;
 
-    [SerializeField] float smashSpeed = 700f;
+    [SerializeField] float smashSpeed;
 
     //Parameters for dash(test)
     
@@ -83,7 +83,7 @@ public class Movement : MonoBehaviour
             return;
         }*/
 
-        if((Input.GetButtonDown("Smash")) && (isJumping))
+        if((Input.GetKey(KeyCode.LeftControl)) && (isJumping))
         {
             rb.AddForce(new Vector2(rb.velocity.x, -smashSpeed));
             StartCoroutine(SmashWait());
@@ -123,6 +123,6 @@ public class Movement : MonoBehaviour
 
     IEnumerator SmashWait()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(3f);
     }
 }
