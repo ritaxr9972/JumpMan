@@ -148,11 +148,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 7
-  jumpSpeed: 450
+  jumpSpeed: 415
   rb: {fileID: 2427423099628809065}
   dashSpeed: 5
   dashTime: 0.4
-  smashSpeed: 400
+  smashSpeed: 650
+  smashTime: 0.8
 --- !u!114 &2427423100446022142
 MonoBehaviour:
   m_ObjectHideFlags: 0

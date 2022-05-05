@@ -20,7 +20,10 @@ public class Movement : MonoBehaviour
     bool isDashing;
     bool canDash;
 
+    bool canMove = true;
+
     [SerializeField] float smashSpeed;
+    [SerializeField] float smashTime;
 
     //Parameters for dash(test)
     
@@ -36,59 +39,63 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // player move
-        movePlayer = Input.GetAxis("Horizontal");
-
-        rb.velocity = new Vector2(playerSpeed * movePlayer, rb.velocity.y);
-
-        //player jump
-        if((Input.GetButtonDown("Jump")) && (isJumping == false))
+        if (canMove)
         {
-            rb.AddForce(new Vector2(rb.velocity.x, jumpSpeed));
-        }
+            // player move
+            movePlayer = Input.GetAxis("Horizontal");
 
-        //dash test
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            
-            dashTime -= Time.deltaTime;
-            if (dashTime > 0)
+            rb.velocity = new Vector2(playerSpeed * movePlayer, rb.velocity.y);
+
+            //player jump
+            if ((Input.GetButtonDown("Jump")) && (isJumping == false))
             {
-                rb.velocity = new Vector2(playerSpeed * movePlayer * dashSpeed, rb.velocity.y);
+                rb.AddForce(new Vector2(rb.velocity.x, jumpSpeed));
             }
-                
+
+            //dash test
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+
+                dashTime -= Time.deltaTime;
+                if (dashTime > 0)
+                {
+                    rb.velocity = new Vector2(playerSpeed * movePlayer * dashSpeed, rb.velocity.y);
+                }
+
+            }
+
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                dashTime = 0.4f;
+            }
+
+            /*
+            // player dash
+            if((Input.GetButtonDown("Dash")) && canDash)
+            {
+                isDashing = true;
+                canDash = false;
+
+                dashDirection = new Vector2(Input.GetAxis("Horizontal"), 0);
+
+                StartCoroutine(StopDash());
+            }
+
+            if(isDashing)
+            {
+                rb.velocity = Vector2.zero;
+                rb.velocity = dashDirection * dashSpeed;
+                return;
+            }*/
+
+            if ((Input.GetKey(KeyCode.LeftControl)) && (isJumping))
+            {
+                rb.velocity = Vector2.zero;
+                canMove = false;
+                rb.AddForce(new Vector2(rb.velocity.x, -smashSpeed));
+                StartCoroutine(SmashWait());
+            }
         }
-
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            dashTime = 0.4f;
-        }
-
-        /*
-        // player dash
-        if((Input.GetButtonDown("Dash")) && canDash)
-        {
-            isDashing = true;
-            canDash = false;
-
-            dashDirection = new Vector2(Input.GetAxis("Horizontal"), 0);
-
-            StartCoroutine(StopDash());
-        }
-
-        if(isDashing)
-        {
-            rb.velocity = Vector2.zero;
-            rb.velocity = dashDirection * dashSpeed;
-            return;
-        }*/
-
-        if((Input.GetKey(KeyCode.LeftControl)) && (isJumping))
-        {
-            rb.AddForce(new Vector2(rb.velocity.x, -smashSpeed));
-            StartCoroutine(SmashWait());
-        }
-
         // camera follow player
        /* Vector3 pos = mainCamera.transform.position;
         pos.x = rb.transform.position.x;
@@ -123,6 +130,9 @@ public class Movement : MonoBehaviour
 
     IEnumerator SmashWait()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(smashTime);
+        canMove = true;
     }
+
+    
 }
