@@ -54,7 +54,7 @@ public class Movement : MonoBehaviour
             dashTime -= Time.deltaTime;
             if (dashTime > 0)
             {
-                rb.velocity = rb.velocity * dashSpeed;
+                rb.velocity = new Vector2(playerSpeed * movePlayer * dashSpeed, rb.velocity.y);
             }
                 
         }
