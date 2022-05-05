@@ -22,10 +22,15 @@ public class Movement : MonoBehaviour
 
     [SerializeField] float smashSpeed = 700f;
 
+    //Parameters for dash(test)
+    
+    //public float startDashTime;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        //dashTime = startDashTime;
     }
 
     // Update is called once per frame
@@ -42,6 +47,24 @@ public class Movement : MonoBehaviour
             rb.AddForce(new Vector2(rb.velocity.x, jumpSpeed));
         }
 
+        //dash test
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            
+            dashTime -= Time.deltaTime;
+            if (dashTime > 0)
+            {
+                rb.velocity = rb.velocity * dashSpeed;
+            }
+                
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            dashTime = 0.4f;
+        }
+
+        /*
         // player dash
         if((Input.GetButtonDown("Dash")) && canDash)
         {
@@ -58,7 +81,7 @@ public class Movement : MonoBehaviour
             rb.velocity = Vector2.zero;
             rb.velocity = dashDirection * dashSpeed;
             return;
-        }
+        }*/
 
         if((Input.GetButtonDown("Smash")) && (isJumping))
         {
