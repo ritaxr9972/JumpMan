@@ -11,6 +11,8 @@ public class Movement : MonoBehaviour
     float movePlayer;
 
     [SerializeField] Rigidbody2D rb;
+    [SerializeField] BoxCollider2D bc;
+    [SerializeField] LayerMask platformLayerMask;
 
     bool isJumping;
 
@@ -49,7 +51,7 @@ public class Movement : MonoBehaviour
             rb.velocity = new Vector2(playerSpeed * movePlayer, rb.velocity.y);
 
             //player jump
-            if ((Input.GetButtonDown("Jump")) && (isJumping == false))
+            if ((Input.GetButtonDown("Jump")) && (isGrounded()))
             {
                 rb.AddForce(new Vector2(rb.velocity.x, jumpSpeed));
             }
@@ -76,7 +78,7 @@ public class Movement : MonoBehaviour
 
             }
 
-            if ((Input.GetKey(KeyCode.LeftControl)) && (isJumping))
+            if ((Input.GetKey(KeyCode.LeftControl)) && (!isGrounded()))
             {
                 rb.velocity = Vector2.zero;
                 canMove = false;
@@ -87,7 +89,14 @@ public class Movement : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private bool isGrounded()
+    {
+        RaycastHit2D hit = Physics2D.BoxCast(bc.bounds.center, bc.bounds.size, 0f, Vector2.down, 0.5f, platformLayerMask);
+
+        return hit.collider != null;
+    }
+
+  /*  private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Floor"))
         {
@@ -110,7 +119,7 @@ public class Movement : MonoBehaviour
         yield return new WaitForSeconds(dashTime);
         isDashing = false;
         canDash = true;
-    }
+    } */
 
     IEnumerator SmashWait()
     {

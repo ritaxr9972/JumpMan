@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3970511684944471630}
   - component: {fileID: 3970511684944471631}
   - component: {fileID: 3970511684944471629}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 3970511684944471624}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: d5ff10449b12ed44387bc3c4091df46c, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

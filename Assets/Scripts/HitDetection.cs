@@ -13,7 +13,7 @@ public class HitDetection : MonoBehaviour
             {
                // Debug.Log(collision.gameObject.GetComponent<Rigidbody2D>().velocity);
                 
-                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(collision.gameObject.GetComponent<Rigidbody2D>().velocity.x, 400f));
+                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(collision.gameObject.GetComponent<Rigidbody2D>().velocity.x, 250f));
 
                 gameObject.SetActive(false);
             }
