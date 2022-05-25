@@ -85,6 +85,10 @@ public class Movement : MonoBehaviour
                 rb.AddForce(new Vector2(rb.velocity.x, -smashSpeed));
                 StartCoroutine(SmashWait());
             }
+            if ((Input.GetKey(KeyCode.LeftControl)) && (isGrounded()))
+            {
+                rb.velocity = new Vector2(playerSpeed * movePlayer * 0.3f, rb.velocity.y);
+            }
         }
 
     }
