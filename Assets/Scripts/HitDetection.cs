@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class HitDetection : MonoBehaviour
 {
+
+    [SerializeField] float enemyJumpSpeed;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         foreach(ContactPoint2D pos in collision.contacts)
@@ -11,15 +14,19 @@ public class HitDetection : MonoBehaviour
             //Debug.Log(pos.normal);
             if(pos.normal.y < 0)
             {
-               // Debug.Log(collision.gameObject.GetComponent<Rigidbody2D>().velocity);
                 
-                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(collision.gameObject.GetComponent<Rigidbody2D>().velocity.x, 250f));
+                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(collision.gameObject.GetComponent<Rigidbody2D>().velocity.x, enemyJumpSpeed));
+                
+                if(collision.gameObject.name == "Player")
+                {
+                    collision.gameObject.GetComponent<Movement>().canDash = true;
+                }
 
                 gameObject.SetActive(false);
             }
             else
             {
-                Debug.Log("Player hit and lose life");
+                UnityEditor.EditorApplication.isPlaying = false;
             }
         }
     }
