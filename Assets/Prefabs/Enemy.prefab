@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc296e5fbd0c70a4ba4e8c12359c5d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyJumpSpeed: 10
+  enemyJumpSpeed: 275
 --- !u!50 &406729338
 Rigidbody2D:
   serializedVersion: 4

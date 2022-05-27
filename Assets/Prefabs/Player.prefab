@@ -124,6 +124,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 8.75
   jumpSpeed: 450
+  crouchHeightSize: 0.5
+  crouchHeightOffset: 3.5
   rb: {fileID: 2427423099628809065}
   bc: {fileID: 1673604936}
   platformLayerMask:
@@ -134,7 +136,6 @@ MonoBehaviour:
   canDash: 0
   smashSpeed: 650
   smashTime: 0.8
-  coolDownPeriodInSeconds: 5
   anim: {fileID: 1673604935}
 --- !u!114 &2427423100446022142
 MonoBehaviour:

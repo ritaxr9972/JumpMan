@@ -7,6 +7,10 @@ public class Movement : MonoBehaviour
     [SerializeField] float playerSpeed;
     [SerializeField] float jumpSpeed;
 
+    [SerializeField] float crouchHeightSize;
+    [SerializeField] float crouchHeightOffset;
+    Vector2 playerColliderSize;
+    Vector2 playerColliderOffset;
 
     float movePlayer;
 
@@ -39,7 +43,8 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        playerColliderSize = bc.size;
+        playerColliderOffset = bc.offset;
     }
 
     // Update is called once per frame
@@ -103,6 +108,8 @@ public class Movement : MonoBehaviour
 
             if ((Input.GetKey(KeyCode.LeftControl)) && (isGrounded()))
             {
+                bc.size = new Vector2(playerColliderSize.x, playerColliderSize.y * crouchHeightSize);
+                bc.offset = new Vector2(playerColliderOffset.x, playerColliderOffset.y * crouchHeightOffset);
                 rb.velocity = new Vector2(playerSpeed * movePlayer * 0.3f, rb.velocity.y);
                 isCrouch = true;
                 anim.SetBool("isCrouching", true);
@@ -110,6 +117,8 @@ public class Movement : MonoBehaviour
             }
             if ((Input.GetKeyUp(KeyCode.LeftControl)) && (isGrounded()))
             {
+                bc.size = playerColliderSize;
+                bc.offset = playerColliderOffset;
                 isCrouch = false;
                 anim.SetBool("isCrouching", false);
             }
