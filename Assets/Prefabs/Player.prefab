@@ -133,9 +133,14 @@ MonoBehaviour:
     m_Bits: 64
   dashSpeed: 25
   dashTime: 0.4
+  isDashing: 0
   canDash: 0
   smashSpeed: 650
   smashTime: 0.8
+  slideSpeed: 20
+  slideTime: 0.3
+  isSliding: 0
+  canSlide: 0
   anim: {fileID: 1673604935}
 --- !u!114 &2427423100446022142
 MonoBehaviour:

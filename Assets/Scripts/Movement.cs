@@ -23,7 +23,6 @@ public class Movement : MonoBehaviour
     //dash parameters
     [SerializeField] float dashSpeed = 20f;
     [SerializeField] float dashTime = 0.4f;
-    Vector2 dashDirection;
     bool isDashing;
     public bool canDash;
 
@@ -37,6 +36,11 @@ public class Movement : MonoBehaviour
     float timeStamp; */
 
     bool isCrouch;
+
+    [SerializeField] float slideSpeed;
+    [SerializeField] float slideTime;
+    bool isSliding;
+    bool canSlide;
 
     [SerializeField] Animator anim;
 
@@ -56,6 +60,7 @@ public class Movement : MonoBehaviour
             if(!isGrounded())
             {
                 anim.SetBool("isJumping", true);
+                canSlide = false;
             }
 
             //check for if player is on the ground
@@ -63,6 +68,7 @@ public class Movement : MonoBehaviour
             {
                 anim.SetBool("isJumping", false);
                 canDash = true;
+                canSlide = true;
                 anim.SetFloat("Speed", Mathf.Abs(playerSpeed * movePlayer));
             }
 
@@ -81,7 +87,7 @@ public class Movement : MonoBehaviour
 
             //player dash
             
-            if (Input.GetKeyDown(KeyCode.LeftShift) && (canDash) && (!isCrouch))
+            if (Input.GetKeyDown(KeyCode.LeftShift) && (canDash) && (!isCrouch) && (!isSliding))
             {
                 canDash = false;
                 isDashing = true;     
@@ -93,6 +99,24 @@ public class Movement : MonoBehaviour
                 rb.velocity = new Vector2(movePlayer * dashSpeed, 0);
                 StartCoroutine(StopDash());
             }   
+
+            //player slide
+
+            if (Input.GetKeyDown(KeyCode.LeftAlt) && (canSlide) && (!isCrouch) && (!isDashing))
+            {
+                canSlide = false;
+                isSliding = true;
+            }
+
+            if (isSliding)
+            {
+                bc.size = new Vector2(playerColliderSize.x * 2f, playerColliderSize.y * crouchHeightSize);
+                bc.offset = new Vector2(playerColliderOffset.x, playerColliderOffset.y * crouchHeightOffset);
+                anim.SetBool("isSliding", true);
+                rb.velocity = Vector2.zero;
+                rb.velocity = new Vector2(movePlayer * slideSpeed, 0);
+                StartCoroutine(StopSlide());
+            }
 
             //player smash
 
@@ -159,6 +183,16 @@ public class Movement : MonoBehaviour
         yield return new WaitForSeconds(dashTime);
         isDashing = false;
     } 
+
+    //enumerator to stop the slide
+    IEnumerator StopSlide()
+    {
+        yield return new WaitForSeconds(slideTime);
+        isSliding = false;
+        bc.size = playerColliderSize;
+        bc.offset = playerColliderOffset;
+        anim.SetBool("isSliding", false);
+    }
 
     //enumerator to wait after the slam
     IEnumerator SmashWait()
