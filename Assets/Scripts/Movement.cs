@@ -61,13 +61,14 @@ public class Movement : MonoBehaviour
             {
                 anim.SetBool("isJumping", true);
                 canSlide = false;
+                canDash = true;
             }
 
             //check for if player is on the ground
             if (isGrounded())
             {
                 anim.SetBool("isJumping", false);
-                canDash = true;
+                canDash = false;
                 canSlide = true;
                 anim.SetFloat("Speed", Mathf.Abs(playerSpeed * movePlayer));
             }

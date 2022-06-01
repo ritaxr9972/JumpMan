@@ -5,12 +5,12 @@ using UnityEngine;
 public class BasicEnemy : MonoBehaviour
 {
 
-    int direction = 1;
+    int direction = -1;
     [SerializeField] GameObject rightEnd;
     [SerializeField] GameObject leftEnd;
 
-    Vector2 enemyVelocity;
-    //Rigidbody2D rb;
+    [SerializeField] float enemySpeed;
+    [SerializeField] Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,8 +28,7 @@ public class BasicEnemy : MonoBehaviour
         {
             direction = 1;
         }
-        enemyVelocity = direction * 2.0f * Time.deltaTime;
-        transform.position.x += enemyVelocity;
+        rb.velocity = new Vector2(direction * enemySpeed, 0);
 
     }
 }
