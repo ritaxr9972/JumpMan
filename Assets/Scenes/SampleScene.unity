@@ -720,11 +720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3970511684944471630, guid: 68c0fd4775d4c9d4a9ba3052ae68b175, type: 3}
       propertyPath: m_RootOrder
-<<<<<<< Updated upstream
       value: 12
-=======
-      value: 7
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 3970511684944471630, guid: 68c0fd4775d4c9d4a9ba3052ae68b175, type: 3}
       propertyPath: m_LocalScale.x
@@ -1238,10 +1234,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 964509912, guid: 76a1147f62ed90b4cb08eb182cd730d5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.7
-      objectReference: {fileID: 0}
     - target: {fileID: 695903778909640785, guid: 76a1147f62ed90b4cb08eb182cd730d5, type: 3}
       propertyPath: m_Name
       value: Shoot Enemy
@@ -1289,10 +1281,6 @@ PrefabInstance:
     - target: {fileID: 695903778909640787, guid: 76a1147f62ed90b4cb08eb182cd730d5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7561774056849133124, guid: 76a1147f62ed90b4cb08eb182cd730d5, type: 3}
-      propertyPath: spawnTime
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76a1147f62ed90b4cb08eb182cd730d5, type: 3}
@@ -1375,13 +1363,10 @@ PrefabInstance:
     - target: {fileID: 3970511684944471630, guid: 68c0fd4775d4c9d4a9ba3052ae68b175, type: 3}
       propertyPath: m_RootOrder
       value: 2
-<<<<<<< Updated upstream
       objectReference: {fileID: 0}
     - target: {fileID: 3970511684944471630, guid: 68c0fd4775d4c9d4a9ba3052ae68b175, type: 3}
       propertyPath: m_LocalScale.x
       value: 23.334547
-=======
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 3970511684944471630, guid: 68c0fd4775d4c9d4a9ba3052ae68b175, type: 3}
       propertyPath: m_LocalScale.y

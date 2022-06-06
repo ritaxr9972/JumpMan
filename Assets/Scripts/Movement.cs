@@ -39,7 +39,7 @@ public class Movement : MonoBehaviour
 
     [SerializeField] float slideSpeed;
     [SerializeField] float slideTime;
-    public bool isSliding;
+    bool isSliding;
     bool canSlide;
 
     [SerializeField] Animator anim;
