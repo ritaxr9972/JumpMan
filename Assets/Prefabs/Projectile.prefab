@@ -138,3 +138,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 4
   rb: {fileID: 6777707275374416391}
+  spawner: {fileID: 695903778909640785, guid: 76a1147f62ed90b4cb08eb182cd730d5, type: 3}

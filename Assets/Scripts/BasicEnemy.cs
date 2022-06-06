@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BasicEnemy : MonoBehaviour
 {
-    [SerializeField] int type = 0;
+    [SerializeField] ChooseType type;
 
     int direction = -1;
     [SerializeField] GameObject rightEnd;
@@ -21,10 +21,16 @@ public class BasicEnemy : MonoBehaviour
         
     }
 
+    enum ChooseType
+    {
+        Type0,
+        Type1
+    };
+
     // Update is called once per frame
     void Update()
     {
-        if (type == 0)
+        if (type == ChooseType.Type0)
         {
             if (transform.position.x >= rightEnd.transform.position.x)
             {
@@ -36,7 +42,7 @@ public class BasicEnemy : MonoBehaviour
             }
             rb.velocity = new Vector2(direction * enemySpeed, 0);
         }
-        else if (type == 1)
+        else if (type == ChooseType.Type1)
         {
             if (transform.position.y >= topEnd.transform.position.y)
             {

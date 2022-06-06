@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] float projectileSpeed;
-    [SerializeField] Rigidbody2D rb;
+   // [SerializeField] float projectileSpeed;
+   // [SerializeField] Rigidbody2D rb;
+   // [SerializeField] GameObject spawner;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +17,18 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector2(0f, projectileSpeed);
+      /*  if (spawner.gameObject.GetComponent<ShootEnemy>().spawnChoose == 1)
+        {
+            rb.velocity = new Vector2(0f, projectileSpeed);
+        }
+        else if (spawner.gameObject.GetComponent<ShootEnemy>().spawnChoose == 2)
+        {
+            rb.velocity = new Vector2(-projectileSpeed, 0f);
+        }
+        else if (spawner.gameObject.GetComponent<ShootEnemy>().spawnChoose == 3)
+        {
+            rb.velocity = new Vector2(projectileSpeed, 0f);
+        } */
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
