@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 7060814605053332704}
   - component: {fileID: 7060814605053332709}
   - component: {fileID: 7060814605053332710}
-  - component: {fileID: 7060814605053332708}
+  - component: {fileID: 7060814606152867238}
+  - component: {fileID: 3068407224134614992}
   m_Layer: 0
   m_Name: Homing Enemy
   m_TagString: Untagged
@@ -134,7 +135,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &7060814605053332708
+--- !u!114 &7060814606152867238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7060814605053332705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5bc1bbf260da0a4aad8ded19cace991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightEnd: {fileID: 0}
+  leftEnd: {fileID: 0}
+  enemySpeed: 3.5
+  rb: {fileID: 7060814605053332710}
+--- !u!58 &3068407224134614992
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,4 +166,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 6
+  m_Radius: 5
