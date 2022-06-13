@@ -8,10 +8,12 @@ public class HomingEnemy : MonoBehaviour
     [SerializeField] GameObject rightEnd;
     [SerializeField] GameObject leftEnd;
     [SerializeField] float enemySpeed;
-    [SerializeField] Rigidbody2D rb;
-    bool isMove = true;
-    Vector2 directionAttack;
-
+    [SerializeField] public Rigidbody2D rb;
+    [SerializeField] public float homingSpeed;
+    [SerializeField] public float homingWaitTime;
+    public bool isMove = true;
+    public Vector2 directionAttack;
+   // [SerializeField] LayerMask platformLayerMask;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,20 +39,35 @@ public class HomingEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name == "Player")
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Platforms"))
         {
-            rb.velocity = Vector2.zero;
-            isMove = false;
-            directionAttack = collision.transform.position - gameObject.transform.position;
-            StartCoroutine(PauseAttack());
-            
+              gameObject.SetActive(false);
+            //Destroy(gameObject);
+           // Debug.Log("Hit a platform");
+        }
+        else if (collision.gameObject.name == "Player")
+        {
+            UnityEditor.EditorApplication.isPlaying = false;
         }
     }
 
-    IEnumerator PauseAttack()
-    {
-        yield return new WaitForSeconds(1f);
-        
-        rb.velocity = directionAttack * 2.5f;
-    }
+    /*  private void OnTriggerEnter2D(Collider2D collision)
+      {
+          if(collision.gameObject.name == "Player")
+          {
+              rb.velocity = Vector2.zero;
+              isMove = false;
+              directionAttack = collision.transform.position - gameObject.transform.position;
+              StartCoroutine(PauseAttack());
+
+          }
+      }
+
+      IEnumerator PauseAttack()
+      {
+
+          yield return new WaitForSeconds(1f);
+
+          rb.velocity = directionAttack * 2.5f;
+      } */
 }

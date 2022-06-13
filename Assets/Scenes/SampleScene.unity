@@ -1241,10 +1241,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3068407224134614992, guid: 72a8b06cc8ec0704ab24de420d1d84a0, type: 3}
-      propertyPath: m_Radius
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 7060814605053332705, guid: 72a8b06cc8ec0704ab24de420d1d84a0, type: 3}
       propertyPath: m_Name
       value: Homing Enemy
