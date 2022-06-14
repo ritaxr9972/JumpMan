@@ -43,22 +43,22 @@ public class ShootEnemy : MonoBehaviour
         canSpawn = false;
         if (spawnChoose == ChooseSpawn.SpawnUp)
         {
-            proj = Instantiate(enemyProjectile, spawnPoint1.transform.position, Quaternion.identity);
+            proj = Instantiate(enemyProjectile, spawnPointUp.transform.position, Quaternion.identity);
             proj.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, projectileSpeed);
         }
         else if (spawnChoose == ChooseSpawn.SpawnLeft)
         {
-            proj = Instantiate(enemyProjectile, spawnPoint2.transform.position, Quaternion.identity);
+            proj = Instantiate(enemyProjectile, spawnPointLeft.transform.position, Quaternion.identity);
             proj.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-projectileSpeed, 0f);
         }
         else if (spawnChoose == ChooseSpawn.SpawnRight)
         {
-            proj = Instantiate(enemyProjectile, spawnPoint3.transform.position, Quaternion.identity);
+            proj = Instantiate(enemyProjectile, spawnPointRight.transform.position, Quaternion.identity);
             proj.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(projectileSpeed, 0f);
         }
-        else if (spawnChoose == ChooseSpawn.SpawnUp)
+        else if (spawnChoose == ChooseSpawn.SpawnDown)
         {
-            proj = Instantiate(enemyProjectile, spawnPoint1.transform.position, Quaternion.identity);
+            proj = Instantiate(enemyProjectile, spawnPointDown.transform.position, Quaternion.identity);
             proj.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -projectileSpeed);
         }
         yield return new WaitForSeconds(spawnTime);
