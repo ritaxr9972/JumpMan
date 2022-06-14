@@ -246,6 +246,6 @@ MonoBehaviour:
   spawnPoint1: {fileID: 964509911}
   spawnPoint2: {fileID: 445053480}
   spawnPoint3: {fileID: 1089002659}
-  spawnTime: 1
+  spawnTime: 1.5
   spawnChoose: 0
   projectileSpeed: 6

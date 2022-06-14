@@ -5,9 +5,10 @@ using UnityEngine;
 public class ShootEnemy : MonoBehaviour
 {
     [SerializeField] GameObject enemyProjectile;
-    [SerializeField] GameObject spawnPoint1;
-    [SerializeField] GameObject spawnPoint2;
-    [SerializeField] GameObject spawnPoint3;
+    [SerializeField] GameObject spawnPointUp;
+    [SerializeField] GameObject spawnPointLeft;
+    [SerializeField] GameObject spawnPointRight;
+    [SerializeField] GameObject spawnPointDown;
     [SerializeField] float spawnTime;
     [SerializeField] ChooseSpawn spawnChoose;
     [SerializeField] float projectileSpeed;
@@ -16,9 +17,10 @@ public class ShootEnemy : MonoBehaviour
 
     enum ChooseSpawn
     {
-        Spawn1,
-        Spawn2,
-        Spawn3
+        SpawnUp,
+        SpawnLeft,
+        SpawnRight,
+        SpawnDown
     };
 
     // Start is called before the first frame update
@@ -39,20 +41,25 @@ public class ShootEnemy : MonoBehaviour
     IEnumerator SpawnProjectile()
     {
         canSpawn = false;
-        if (spawnChoose == ChooseSpawn.Spawn1)
+        if (spawnChoose == ChooseSpawn.SpawnUp)
         {
             proj = Instantiate(enemyProjectile, spawnPoint1.transform.position, Quaternion.identity);
             proj.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, projectileSpeed);
         }
-        else if (spawnChoose == ChooseSpawn.Spawn2)
+        else if (spawnChoose == ChooseSpawn.SpawnLeft)
         {
             proj = Instantiate(enemyProjectile, spawnPoint2.transform.position, Quaternion.identity);
             proj.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-projectileSpeed, 0f);
         }
-        else if (spawnChoose == ChooseSpawn.Spawn3)
+        else if (spawnChoose == ChooseSpawn.SpawnRight)
         {
             proj = Instantiate(enemyProjectile, spawnPoint3.transform.position, Quaternion.identity);
             proj.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(projectileSpeed, 0f);
+        }
+        else if (spawnChoose == ChooseSpawn.SpawnUp)
+        {
+            proj = Instantiate(enemyProjectile, spawnPoint1.transform.position, Quaternion.identity);
+            proj.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -projectileSpeed);
         }
         yield return new WaitForSeconds(spawnTime);
         canSpawn = true;
