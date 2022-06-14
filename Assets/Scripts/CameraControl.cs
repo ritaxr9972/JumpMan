@@ -19,7 +19,7 @@ public class CameraControl : MonoBehaviour
     void Update()
     {
         Vector3 pos = mainCamera.transform.position;
-        pos.x = rb.transform.position.x;
+        pos.x = rb.transform.position.x + 5;
         pos.y = rb.transform.position.y;
         mainCamera.transform.position = pos;
     }
