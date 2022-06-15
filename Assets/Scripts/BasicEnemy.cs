@@ -23,14 +23,14 @@ public class BasicEnemy : MonoBehaviour
 
     enum ChooseType
     {
-        Type0,
-        Type1
+        TypeHorizontal,
+        TypeVertical
     };
 
     // Update is called once per frame
     void Update()
     {
-        if (type == ChooseType.Type0)
+        if (type == ChooseType.TypeHorizontal)
         {
             if (transform.position.x >= rightEnd.transform.position.x)
             {
@@ -42,7 +42,7 @@ public class BasicEnemy : MonoBehaviour
             }
             rb.velocity = new Vector2(direction * enemySpeed, 0);
         }
-        else if (type == ChooseType.Type1)
+        else if (type == ChooseType.TypeVertical)
         {
             if (transform.position.y >= topEnd.transform.position.y)
             {
