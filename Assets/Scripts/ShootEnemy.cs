@@ -79,14 +79,14 @@ public class ShootEnemy : MonoBehaviour
                     }
                     else
                     {
-                        UnityEditor.EditorApplication.isPlaying = false;
+                       // UnityEditor.EditorApplication.isPlaying = false;
                     }
                 }
 
             }
             else
             {
-                UnityEditor.EditorApplication.isPlaying = false;
+                //UnityEditor.EditorApplication.isPlaying = false;
             }
         }
     }

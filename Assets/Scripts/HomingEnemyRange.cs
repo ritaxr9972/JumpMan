@@ -36,11 +36,12 @@ public class HomingEnemyRange : MonoBehaviour
 
     IEnumerator PauseAttack()
     {
+        parent.GetComponent<HomingEnemy>().directionAttack = player.transform.position - parent.gameObject.transform.position;
         color = parent.GetComponent<SpriteRenderer>().color;
         parent.GetComponent<SpriteRenderer>().color = Color.black;
         yield return new WaitForSeconds(parent.GetComponent<HomingEnemy>().homingWaitTime);
         parent.GetComponent<SpriteRenderer>().color = color;
-        parent.GetComponent<HomingEnemy>().directionAttack = player.transform.position - parent.gameObject.transform.position;
+        
         parent.GetComponent<HomingEnemy>().rb.velocity = parent.GetComponent<HomingEnemy>().directionAttack * parent.GetComponent<HomingEnemy>().homingSpeed;
 
     }

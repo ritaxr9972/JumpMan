@@ -236,6 +236,6 @@ MonoBehaviour:
   enemySpeed: 3.5
   rb: {fileID: 7060814605053332710}
   homingSpeed: 3
-  homingWaitTime: 1.5
+  homingWaitTime: 0.4
   isMove: 1
   directionAttack: {x: 0, y: 0}

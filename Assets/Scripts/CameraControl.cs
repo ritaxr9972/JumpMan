@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
-    [SerializeField] GameObject mainCamera;
     [SerializeField] GameObject player;
-
+    [SerializeField] float cameraOffset;
+    [SerializeField] float offsetSmoothing;
     Rigidbody2D rb;
+    Vector3 pos;
 
     // Start is called before the first frame update
     void Start()
@@ -18,9 +19,19 @@ public class CameraControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 pos = mainCamera.transform.position;
-        pos.x = rb.transform.position.x + 5;
-        pos.y = rb.transform.position.y;
-        mainCamera.transform.position = pos;
+        pos = new Vector3(rb.transform.position.x, rb.transform.position.y, transform.position.z);
+
+        if (!player.GetComponent<SpriteRenderer>().flipX)
+        {
+            pos = new Vector3(pos.x + cameraOffset, pos.y, pos.z);
+        }
+        else if (player.GetComponent<SpriteRenderer>().flipX)
+        {
+            pos = new Vector3(pos.x - cameraOffset, pos.y, pos.z);
+        }
+
+        transform.position = Vector3.Lerp(transform.position, pos, offsetSmoothing * Time.deltaTime);
     }
+
+    
 }
