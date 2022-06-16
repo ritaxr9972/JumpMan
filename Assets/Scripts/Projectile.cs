@@ -38,7 +38,14 @@ public class Projectile : MonoBehaviour
             UnityEditor.EditorApplication.isPlaying = false;
             Destroy(gameObject);
         }
+
+        else if (collision.gameObject.tag == "Floor")
+        {
+            
+            Destroy(gameObject);
+        }
     }
+
 
     IEnumerator DestroyProjectile()
     {
