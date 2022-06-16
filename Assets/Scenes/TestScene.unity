@@ -440,6 +440,10 @@ PrefabInstance:
       propertyPath: rightEnd
       value: 
       objectReference: {fileID: 1062285189}
+    - target: {fileID: 7060814606152867238, guid: 72a8b06cc8ec0704ab24de420d1d84a0, type: 3}
+      propertyPath: homingSpeed
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72a8b06cc8ec0704ab24de420d1d84a0, type: 3}
 --- !u!1001 &1790617836
@@ -501,5 +505,13 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 384048020}
+    - target: {fileID: 1008599016536856495, guid: 3fe2a89a63f858846aa058de840915d5, type: 3}
+      propertyPath: smoothTime
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008599016536856495, guid: 3fe2a89a63f858846aa058de840915d5, type: 3}
+      propertyPath: offsetSmoothing
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fe2a89a63f858846aa058de840915d5, type: 3}
