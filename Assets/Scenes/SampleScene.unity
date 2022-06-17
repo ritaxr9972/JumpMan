@@ -3539,7 +3539,7 @@ PrefabInstance:
       objectReference: {fileID: 1992919487}
     - target: {fileID: 1008599016536856495, guid: 3fe2a89a63f858846aa058de840915d5, type: 3}
       propertyPath: offsetSmoothing
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fe2a89a63f858846aa058de840915d5, type: 3}
