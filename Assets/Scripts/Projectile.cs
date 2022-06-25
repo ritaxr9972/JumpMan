@@ -33,6 +33,21 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
+        switch(collision.gameObject.tag)
+        {
+            case "Player":
+                UnityEditor.EditorApplication.isPlaying = false;
+                Destroy(gameObject);
+                break;
+            case "Floor":
+                Destroy(gameObject);
+                break;
+            case "Enemy":
+                Destroy(gameObject);
+                break;
+        }
+/*
         if(collision.gameObject.name == "Player")
         {
             UnityEditor.EditorApplication.isPlaying = false;
@@ -43,7 +58,7 @@ public class Projectile : MonoBehaviour
         {
             
             Destroy(gameObject);
-        }
+        }*/
     }
 
 
