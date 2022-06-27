@@ -125,14 +125,13 @@ MonoBehaviour:
   jumpSpeed: 450
   crouchHeightSize: 0.5
   crouchHeightOffset: 3.5
-  movePlayer: 0
   rb: {fileID: 2427423099628809065}
   bc: {fileID: 1673604936}
   platformLayerMask:
     serializedVersion: 2
     m_Bits: 64
   dashSpeed: 25
-  dashTime: 0.4
+  dashTime: 0.19
   canDash: 0
   smashSpeed: 650
   smashTime: 0.8
