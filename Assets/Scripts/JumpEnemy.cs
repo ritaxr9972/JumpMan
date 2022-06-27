@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class JumpEnemy : MonoBehaviour
 {
+    [SerializeField] Rigidbody2D rb;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +18,23 @@ public class JumpEnemy : MonoBehaviour
     {
         
     }
+
+    /*
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag != "Floor")
+        {
+            rb.velocity = Vector2.zero;
+            rb.isKinematic = true;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag != "Floor")
+        {
+            rb.velocity = Vector2.zero;
+            rb.isKinematic = false;
+        }
+    }
+    */
 }
