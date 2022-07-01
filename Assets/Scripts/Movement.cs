@@ -5,7 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField] float playerSpeed;
-    [SerializeField] float jumpSpeed;
+    [SerializeField] public float jumpSpeed;
 
     [SerializeField] float crouchHeightSize;
     [SerializeField] float crouchHeightOffset;

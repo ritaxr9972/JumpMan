@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Walljump : MonoBehaviour
 {
+    [SerializeField] float gravityScaleChange;
+    float gravityScaleOriginal = 2f;
+    bool canJump = false;
+    GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +18,17 @@ public class Walljump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(canJump)
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                canJump = false;
+                //Debug.Log("Jumped");
+                 player.gameObject.GetComponent<Rigidbody2D>().gravityScale = gravityScaleOriginal;
+                 player.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                 player.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(player.gameObject.GetComponent<Rigidbody2D>().velocity.x, player.gameObject.GetComponent<Movement>().jumpSpeed));
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -24,8 +39,11 @@ public class Walljump : MonoBehaviour
             {
                 if(collision.gameObject.tag == "Player")
                 {
+                    player = collision.gameObject;
                     collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                    collision.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.1f;
+                    collision.gameObject.GetComponent<Rigidbody2D>().gravityScale = gravityScaleChange;
+
+                    canJump = true;
                 }
             }
         }
@@ -34,7 +52,8 @@ public class Walljump : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().gravityScale = 2f;
+            canJump = false;
+            collision.gameObject.GetComponent<Rigidbody2D>().gravityScale = gravityScaleOriginal;
         }
     }
 
