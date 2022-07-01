@@ -20,7 +20,7 @@ public class Walljump : MonoBehaviour
     {
         if(canJump)
         {
-            if (Input.GetButtonDown("Jump"))
+            if ((Input.GetButtonDown("Jump")) && (!player.gameObject.GetComponent<Movement>().isGrounded()))
             {
                 canJump = false;
                 //Debug.Log("Jumped");
@@ -52,8 +52,9 @@ public class Walljump : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            canJump = false;
             collision.gameObject.GetComponent<Rigidbody2D>().gravityScale = gravityScaleOriginal;
+            canJump = false;
+            
         }
     }
 

@@ -81,9 +81,7 @@ public class Movement : MonoBehaviour
             //player jump
             if ((Input.GetButtonDown("Jump")) && (isGrounded()) && (!isCrouch))
             {
-                
-                rb.AddForce(new Vector2(rb.velocity.x, jumpSpeed));
-                
+                rb.AddForce(new Vector2(rb.velocity.x, jumpSpeed));               
             }
 
             //player dash
@@ -152,7 +150,7 @@ public class Movement : MonoBehaviour
     }
 
     //function to check if player is on the ground by drawing a boxcast
-    private bool isGrounded()
+    public bool isGrounded()
     {
         RaycastHit2D hit = Physics2D.BoxCast(bc.bounds.center, bc.bounds.size, 0f, Vector2.down, 0.5f, platformLayerMask);
 
